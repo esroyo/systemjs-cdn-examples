@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Systemjs.sh example: Vite + Vue + TS</title>
+    <!--
+      The only global variable defined will be `System`
+    -->
+    <script src="https://unpkg.com/systemjs/dist/s.js"></script>
+    <!--
+      Once `System` is loaded we can add an importmap with maps
+      scoped/limited to our third-party domain (for example: esroyo.github.io).
+      We are not interferring with other consumers of `System`, if the exist.
+    -->
+    <script>
+    System.addImportMap({
+      "scopes": {
+        "https://esroyo.github.io/systemjs.sh-examples/": {
+          // vue will be loaded from the systemjs.sh CDN
+          "vue": "https://systemjs.sh/vue",
+        }
+      },
+    });
+    </script>
+    <!-- the source of our app does not include vue -->
+    
+    <script src="./assets/index.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+  </body>
+</html>
