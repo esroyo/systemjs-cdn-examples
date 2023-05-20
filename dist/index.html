@@ -12,7 +12,7 @@
     <!--
       Once `System` is loaded we can add an importmap with maps
       scoped/limited to our third-party domain (for example: esroyo.github.io).
-      We are not interferring with other consumers of `System`, if the exist.
+      We are not interferring with other consumers of `System`, if they exist.
     -->
     <script>
     System.addImportMap({
@@ -24,7 +24,11 @@
       },
     });
     </script>
-    <!-- the source of our app does not include vue -->
+    <!--
+      1 - The output format of our code is systemjs
+      2 - Our build does not include vue
+      3 - That is scalable to any shared code
+    -->
     
     <script src="./assets/index.js"></script>
   </head>
