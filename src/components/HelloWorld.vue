@@ -8,7 +8,7 @@ const count = ref(0)
 
 <template>
   <h1>{{ msg }}</h1>
-  <h3>served over <strong><a href="https://systemjs.sh/vue">systemjs.sh CDN</a></strong></h3>
+  <h3>served over <strong><a href="https://systemjs.sh">systemjs.sh CDN</a></strong></h3>
 
   <div class="card">
     <button type="button" @click="count++">count is {{ count }}</button>
