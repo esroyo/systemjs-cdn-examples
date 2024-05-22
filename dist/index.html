@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="preconnect" href="https://unpkg.com" />
     <link rel="preconnect" href="https://systemjs.sh" />
     <link rel="icon" type="image/svg+xml" href="./vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,7 +9,7 @@
     <!--
       The only global variable defined will be `System`
     -->
-    <script src="https://unpkg.com/systemjs/dist/s.js"></script>
+    <script src="https://systemjs.sh/systemjs/dist/s.js?raw"></script>
     <!--
       Once `System` is loaded we can add an importmap with maps
       scoped/limited to our third-party domain (for example: esroyo.github.io).
@@ -18,23 +17,27 @@
     -->
     <script>
     System.addImportMap({
+      // The first-party code will use vue@latest
+      "vue": "https://systemjs.sh/vue",
       "scopes": {
+        // The third-party code will use vue@3.3
         "https://esroyo.github.io/systemjs.sh-examples/": {
-          // vue will be loaded from the systemjs.sh CDN
-          "vue": "https://systemjs.sh/vue",
+          "vue": "https://systemjs.sh/vue@3.3",
         }
       },
     });
     </script>
-    <!--
-      1 - The output format of our code is systemjs
-      2 - Our build does not include vue
-      3 - That is scalable to any shared code
-    -->
+    <!-- This is the third-party code that uses vue@3.3 -->
     
-    <script src="./assets/index.js"></script>
+    <script type="module" crossorigin src="https://esroyo.github.io/systemjs.sh-examples/dist/assets/index.js"></script>
   </head>
   <body>
     <div id="app"></div>
+    <!-- This is the first-party code that uses vue@latest -->
+    <script>
+System.import('vue').then((m) => {
+  console.log(`${window.location.hostname} is using vue@${m.version}`);
+});
+    </script>
   </body>
 </html>

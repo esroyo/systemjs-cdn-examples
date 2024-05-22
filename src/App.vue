@@ -1,5 +1,9 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
+import { version } from 'vue';
+
+import HelloWorld from './components/HelloWorld.vue';
+
+const msg = `Vite + Vue (${version})`;
 </script>
 
 <template>
@@ -11,7 +15,7 @@ import HelloWorld from './components/HelloWorld.vue'
       <img src="https://vuejs.org/logo.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <HelloWorld msg="Vite + Vue" />
+  <HelloWorld :msg="msg" />
 </template>
 
 <style scoped>

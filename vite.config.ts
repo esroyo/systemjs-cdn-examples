@@ -44,4 +44,11 @@ export default defineConfig({
     nonmodulePlugin(),
     assetsRelativePlugin(),
   ],
+  experimental: {
+    renderBuiltUrl(filename, { hostId , hostType , type }) {
+      if (filename === 'assets/index.js') {
+        return 'https://esroyo.github.io/systemjs.sh-examples/dist/' + filename;
+      }
+    },
+  },
 });
