@@ -1,4 +1,4 @@
-# 👉 [live example site 🌍](https://esroyo.github.io/systemjs-cdn-examples/dist/index.html)
+# 👉 [live example site 🌍](https://systemjs-cdn-examples.netlify.app/)
 
 # Vue 3 + TypeScript + Vite
 

@@ -18,7 +18,9 @@
     <script>
     System.addImportMap({
       // The first-party code will use vue@latest
-      "vue": "https://systemjs.sh/vue",
+      "imports": {
+        "vue": "https://systemjs.sh/vue",
+      },
       "scopes": {
         // The third-party code will use vue@3.3
         "https://esroyo.github.io/systemjs-cdn-examples/": {
