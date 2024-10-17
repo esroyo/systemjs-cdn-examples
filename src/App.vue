@@ -8,8 +8,8 @@ const msg = `Vite + Vue (${version})`;
 
 <template>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="https://vitejs.dev/logo.svg" class="logo" alt="Vite logo" />
+    <a href="https://vite.dev" target="_blank">
+      <img src="https://vite.dev/logo.svg" class="logo" alt="Vite logo" />
     </a>
     <a href="https://vuejs.org/" target="_blank">
       <img src="https://vuejs.org/logo.svg" class="logo vue" alt="Vue logo" />
