@@ -79,7 +79,8 @@ const list = [
 ...performance.getEntriesByType('resource')
 	.filter(({ name }) => name.startsWith('https://systemjs.sh/'))
 	.map(({ name, duration, serverTiming, transferSize }) => {
-		const { total: serverDuration, ...otherServerTiming } = Object.fromEntries(serverTiming.map(st => [st.description || st.name, st.duration ]));
+		const { total: serverDuration, ...other } = Object.fromEntries(serverTiming.map(st => [st.description || st.name, st.duration ]));
+    const otherServerTiming = Object.fromEntries(Object.entries(other).map(pair => [pair[0], pair[1] || '✅']));
 return { name, duration: duration.toFixed(0), serverDuration, diff: duration.toFixed(0) - serverDuration, transferSize, ...otherServerTiming };
   }),
 ];
