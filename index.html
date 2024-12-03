@@ -48,5 +48,54 @@ window.addEventListener('DOMContentLoaded', () => {
   });
 });
     </script>
+    <script>
+function tabular(list) {
+  const cols = [...new Set(list.map((obj) => Object.keys(obj)).flat())];
+  return [
+    cols,
+    ...list.map((obj) => cols.map((col) => obj[col])),
+  ];
+}
+
+function table(list) {
+  return `
+<style>
+tr:nth-child(even) {background-color: #f2f2f2;}
+th, td { padding: 6px; }
+th, td { max-width: 14em; min-width: 5em; }
+table { border-collapse: collapse }
+table, th, td { border: 1px solid; }
+</style>
+<code>
+<table>
+<thead><tr>${list[0].map((head) => `<th>${head}</th>`).join('')}</tr></thead>
+<tbody>${list.slice(1).map(row => `<tr>${row.map((data) => `<td>${data ?? ''}</td>`).join('')}</tr>`).join('\n')}</tbody>
+</table>
+</code>`;
+}
+
+function updateNetDebug() {
+const list = [
+...performance.getEntriesByType('resource')
+	.filter(({ name }) => name.startsWith('https://systemjs.sh/'))
+	.map(({ name, duration, serverTiming, transferSize }) => {
+		const { total: serverDuration, ...otherServerTiming } = Object.fromEntries(serverTiming.map(st => [st.description || st.name, st.duration ]));
+return { name, duration, serverDuration, diff: duration - serverDuration, transferSize, ...otherServerTiming };
+  }),
+];
+const debugDiv = document.querySelector('#net-debug') || document.createElement('div');
+debugDiv.id = 'net-debug';
+debugDiv.innerHTML = table(tabular(list));
+if (!debugDiv.parentNode) {
+  document.body.prepend(debugDiv);
+}
+}
+
+const href = new URL(location.href);
+if (href.searchParams.has('net-debug')) {
+const observer = new PerformanceObserver(updateNetDebug);
+observer.observe({ type: "resource", buffered: true });
+}
+    </script>
   </body>
 </html>
