@@ -81,7 +81,7 @@ const list = [
 	.filter(({ name }) => name.startsWith('https://systemjs.sh/'))
 	.map(({ name, duration, serverTiming, transferSize }) => {
 		const { total: serverDuration, ...otherServerTiming } = Object.fromEntries(serverTiming.map(st => [st.description || st.name, st.duration ]));
-return { name, duration, serverDuration, diff: duration - serverDuration, transferSize, ...otherServerTiming };
+return { name, duration: duration.toFixed(0), serverDuration, diff: duration.toFixed(0) - serverDuration, transferSize, ...otherServerTiming };
   }),
 ];
 const debugDiv = document.querySelector('#net-debug') || document.createElement('div');
