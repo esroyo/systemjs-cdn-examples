@@ -58,18 +58,23 @@ function tabular(list) {
 }
 
 function table(list) {
+  const headRow = list[0];
+  const bodyRows = list.slice(1, -1);
+  const footRow = list[list.length - 1];
   return `
 <style>
-tr:nth-child(even) {background-color: #f2f2f2;}
+td.gt { color: #a40000; }
+tr:nth-child(even) { background-color: #f2f2f2; }
 th, td { padding: 6px; }
 th, td { max-width: 14em; min-width: 5em; word-wrap: break-word; }
 table { border-collapse: collapse; table-layout: fixed; }
-table, th, td { border: 1px solid; }
+table, th, td { border: 1px solid black; }
 </style>
 <code>
 <table>
-<thead><tr>${list[0].map((head) => `<th>${head}</th>`).join('')}</tr></thead>
-<tbody>${list.slice(1).map(row => `<tr>${row.map((data) => `<td>${data ?? ''}</td>`).join('')}</tr>`).join('\n')}</tbody>
+<thead><tr>${headRow.map((head) => `<th>${head}</th>`).join('')}</tr></thead>
+<tbody>${bodyRows.map((row) => `<tr>${row.map((data, idx) => `<td class="${(data && footRow[idx] && data > footRow[idx]) ? 'gt' : ''}">${data ?? ''}</td>`).join('')}</tr>`).join('\n')}</tbody>
+<tfoot><tr>${footRow.map((foot) => `<td>${foot}</td>`).join('')}</tr></tfoot>
 </table>
 </code>`;
 }
@@ -81,12 +86,25 @@ const list = [
 	.map(({ name, duration, serverTiming, transferSize }) => {
 		const { total: serverDuration, ...other } = Object.fromEntries(serverTiming.map(st => [st.description || st.name, st.duration ]));
     const otherServerTiming = Object.fromEntries(Object.entries(other).map(pair => [pair[0], pair[1] || '✅']));
-return { name, duration: duration.toFixed(0), serverDuration, diff: duration.toFixed(0) - serverDuration, transferSize, ...otherServerTiming };
+return { name, duration: Math.round(duration), serverDuration, diff: Math.round(duration - serverDuration), transferSize, ...otherServerTiming };
   }),
 ];
+const tabbed = tabular(list);
+const summary = Array.from(tabbed[0], (_, idx) => {
+  const cells = tabbed
+    .slice(1)
+    .map((row) => row[idx])
+    .filter((item) => typeof item === 'number');
+  if (cells.length) {
+    const avg = Math.round(cells.reduce((acc, cur) => acc + cur, 0) / cells.length);
+    return avg;
+  }
+  return '';
+});
+tabbed.push(summary);
 const debugDiv = document.querySelector('#net-debug') || document.createElement('div');
 debugDiv.id = 'net-debug';
-debugDiv.innerHTML = table(tabular(list));
+debugDiv.innerHTML = table(tabbed);
 if (!debugDiv.parentNode) {
   document.body.prepend(debugDiv);
 }
