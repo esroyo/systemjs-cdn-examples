@@ -1,7 +1,7 @@
 System.register(["vue"], function(exports, module) {
   "use strict";
   var __vite_style__ = document.createElement("style");
-  __vite_style__.textContent = ":root {\n  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;\n  line-height: 1.5;\n  font-weight: 400;\n\n  color-scheme: light dark;\n  color: rgba(255, 255, 255, 0.87);\n  background-color: #242424;\n\n  font-synthesis: none;\n  text-rendering: optimizeLegibility;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  -webkit-text-size-adjust: 100%;\n}\n\na {\n  font-weight: 500;\n  color: #646cff;\n  text-decoration: inherit;\n}\na:hover {\n  color: #535bf2;\n}\n\nbody {\n  margin: 0;\n  display: flex;\n  place-items: center;\n  min-width: 320px;\n  min-height: 100vh;\n}\n\nh1 {\n  font-size: 3.2em;\n  line-height: 1.1;\n}\n\nbutton {\n  border-radius: 8px;\n  border: 1px solid transparent;\n  padding: 0.6em 1.2em;\n  font-size: 1em;\n  font-weight: 500;\n  font-family: inherit;\n  background-color: #1a1a1a;\n  cursor: pointer;\n  transition: border-color 0.25s;\n}\nbutton:hover {\n  border-color: #646cff;\n}\nbutton:focus,\nbutton:focus-visible {\n  outline: 4px auto -webkit-focus-ring-color;\n}\n\n.card {\n  padding: 2em;\n}\n\n#app {\n  max-width: 1280px;\n  margin: 0 auto;\n  padding: 2rem;\n  text-align: center;\n}\n\n@media (prefers-color-scheme: light) {\n  :root {\n    color: #213547;\n    background-color: #ffffff;\n  }\n  a:hover {\n    color: #747bff;\n  }\n  button {\n    background-color: #f9f9f9;\n  }\n}\n\n.read-the-docs[data-v-9feff55d] {\n  color: #888;\n}\n\n.logo[data-v-3dd1b76e] {\n  height: 6em;\n  padding: 1.5em;\n  will-change: filter;\n  transition: filter 300ms;\n}\n.logo[data-v-3dd1b76e]:hover {\n  filter: drop-shadow(0 0 2em #646cffaa);\n}\n.logo.vue[data-v-3dd1b76e]:hover {\n  filter: drop-shadow(0 0 2em #42b883aa);\n}\n";
+  __vite_style__.textContent = ":root {\n  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;\n  line-height: 1.5;\n  font-weight: 400;\n\n  color-scheme: light dark;\n  color: rgba(255, 255, 255, 0.87);\n  background-color: #242424;\n\n  font-synthesis: none;\n  text-rendering: optimizeLegibility;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  -webkit-text-size-adjust: 100%;\n}\n\na {\n  font-weight: 500;\n  color: #646cff;\n  text-decoration: inherit;\n}\na:hover {\n  color: #535bf2;\n}\n\nbody {\n  margin: 0;\n  display: flex;\n  place-items: center;\n  min-width: 320px;\n  min-height: 100vh;\n}\n\nh1 {\n  font-size: 3.2em;\n  line-height: 1.1;\n}\n\nbutton {\n  border-radius: 8px;\n  border: 1px solid transparent;\n  padding: 0.6em 1.2em;\n  font-size: 1em;\n  font-weight: 500;\n  font-family: inherit;\n  background-color: #1a1a1a;\n  cursor: pointer;\n  transition: border-color 0.25s;\n}\nbutton:hover {\n  border-color: #646cff;\n}\nbutton:focus,\nbutton:focus-visible {\n  outline: 4px auto -webkit-focus-ring-color;\n}\n\n.card {\n  padding: 2em;\n}\n\n#app {\n  max-width: 1280px;\n  margin: 0 auto;\n  padding: 2rem;\n  text-align: center;\n}\n\n@media (prefers-color-scheme: light) {\n  :root {\n    color: #213547;\n    background-color: #ffffff;\n  }\n  a:hover {\n    color: #747bff;\n  }\n  button {\n    background-color: #f9f9f9;\n  }\n}\n\n.read-the-docs[data-v-efa23144] {\n  color: #888;\n}\n\n.logo[data-v-3dd1b76e] {\n  height: 6em;\n  padding: 1.5em;\n  will-change: filter;\n  transition: filter 300ms;\n}\n.logo[data-v-3dd1b76e]:hover {\n  filter: drop-shadow(0 0 2em #646cffaa);\n}\n.logo.vue[data-v-3dd1b76e]:hover {\n  filter: drop-shadow(0 0 2em #42b883aa);\n}\n";
   document.head.appendChild(__vite_style__);
   var defineComponent, ref, openBlock, createElementBlock, Fragment, createElementVNode, toDisplayString, pushScopeId, popScopeId, createTextVNode, createVNode, version, createApp;
   return {
@@ -22,11 +22,11 @@ System.register(["vue"], function(exports, module) {
     }],
     execute: function() {
       const style = "";
-      const _withScopeId$1 = (n) => (pushScopeId("data-v-9feff55d"), n = n(), popScopeId(), n);
+      const _withScopeId$1 = (n) => (pushScopeId("data-v-efa23144"), n = n(), popScopeId(), n);
       const _hoisted_1$1 = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ createElementVNode("h3", null, [
         /* @__PURE__ */ createTextVNode("served over "),
         /* @__PURE__ */ createElementVNode("strong", null, [
-          /* @__PURE__ */ createElementVNode("a", { href: "https://systemjs.sh" }, "systemjs.sh CDN")
+          /* @__PURE__ */ createElementVNode("a", { href: "https://systemjs.comu.cat" }, "systemjs CDN")
         ])
       ], -1));
       const _hoisted_2 = { class: "card" };
@@ -51,7 +51,7 @@ System.register(["vue"], function(exports, module) {
           };
         }
       });
-      const HelloWorld_vue_vue_type_style_index_0_scoped_9feff55d_lang = "";
+      const HelloWorld_vue_vue_type_style_index_0_scoped_efa23144_lang = "";
       const _export_sfc = (sfc, props) => {
         const target = sfc.__vccOpts || sfc;
         for (const [key, val] of props) {
@@ -59,7 +59,7 @@ System.register(["vue"], function(exports, module) {
         }
         return target;
       };
-      const HelloWorld = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-9feff55d"]]);
+      const HelloWorld = /* @__PURE__ */ _export_sfc(_sfc_main$1, [["__scopeId", "data-v-efa23144"]]);
       const _withScopeId = (n) => (pushScopeId("data-v-3dd1b76e"), n = n(), popScopeId(), n);
       const _hoisted_1 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createElementVNode("div", null, [
         /* @__PURE__ */ createElementVNode("a", {

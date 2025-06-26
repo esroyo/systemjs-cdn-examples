@@ -2,14 +2,14 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="preconnect" href="https://systemjs.sh" />
+    <link rel="preconnect" href="https://systemjs.comu.cat" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Systemjs.sh example: Vite + Vue</title>
+    <title>Systemjs CDN example: Vite + Vue</title>
     <!--
       The only global variable defined will be `System`
     -->
-    <script src="https://systemjs.sh/systemjs@6.15.1/dist/s.min.js?raw" crossorigin></script>
+    <script src="https://systemjs.comu.cat/systemjs@6.15.1/dist/s.min.js?raw" crossorigin></script>
     <!--
       Once `System` is loaded we can add an importmap with maps
       scoped/limited to our third-party domain (for example: esroyo.github.io).
@@ -19,12 +19,12 @@
     System.addImportMap({
       // The first-party code will use vue@latest
       "imports": {
-        "vue": "https://systemjs.sh/vue",
+        "vue": "https://systemjs.comu.cat/vue",
       },
       "scopes": {
         // The third-party code will use vue@3.3
         "https://esroyo.github.io/systemjs-cdn-examples/": {
-          "vue": "https://systemjs.sh/vue@3.3",
+          "vue": "https://systemjs.comu.cat/vue@3.3",
         }
       },
     });
@@ -82,7 +82,7 @@ table, th, td { border: 1px solid black; }
 function updateNetDebug() {
 const list = [
 ...performance.getEntriesByType('resource')
-	.filter(({ name }) => name.startsWith('https://systemjs.sh/'))
+	.filter(({ name }) => name.startsWith('https://systemjs.comu.cat/'))
 	.map(({ name, duration, serverTiming, transferSize }) => {
 		const { total: serverDuration, ...other } = Object.fromEntries(serverTiming.map(st => [st.description || st.name, st.duration ]));
     const otherServerTiming = Object.fromEntries(Object.entries(other).map(pair => [pair[0], pair[1] || '✅']));
